@@ -214,5 +214,73 @@ app.listen(3000, () => {
 });
 ```
 
+Acvitity (8 min)
+
+Write new routes that have one or more parameters. (One idea might be `/dogs/:name/` or even `/dogs/:name/:breed`.) Take the parameter(s) and `res.send` them back to the browser either raw or interpolated into a string. Now, test them out by using http://localhost:3000 plus your route(s) in the browser.
+
+
+## Creating Query Parameters
+
+Like URL parameters, query parameters are data sent through the URL.
+
+When defining query parameters, we use a `?` to indicate the beginning of a query parameter string, and we use `&` to separate key/value pairs.
+
+This example has two query parameters, `firstName` and `secondName`:
+
+```js
+http://localhost:3000/users?firstName=Dalton&lastName=Hart
+```
+
+Just like `req.params`, Express will retrieves these query parameters through another object called `query`.
+
+```js
+const express = require('express');
+const app = express();
+
+// temporary, simulated database
+const fruits = ['apple', 'banana', 'pear'];
+
+// routes/controllers
+app.get('/greetings', (req, res) => {
+    res.send(`Hello, ${req.query.firstName} ${req.query.lastName}`)
+})
+
+
+app.listen(3000, () => {
+    console.log('Listening for client requests');
+});
+```
+
+Try it out: http://localhost:3000/greetings?firstName=Grace&lastName=Hopper
+
+Let's add another controller for practice:
+
+```js
+app.get('/add', (req, res) => {
+    const sum = req.query.x + req.query.y;
+    res.send(`${req.query.x} + ${req.query.y} = ${sum}`);
+})
+```
+
+Try it out: http://localhost:3000/add?x=5&y=4
+
+<details>
+  <summary>That didn't work as expected! Why is this?</summary>
+  Parameters, whether URL or query, are passed in as strings. This means that sometimes we'll need to convert strings to another data type in order for them to perform as expected.
+</details>
+
+Let's convert our parameters to numbers:
+
+```js
+app.get('/add', (req, res) => {
+    const sum = parseInt(req.query.x) + parseInt(req.query.y);
+    res.send(`${req.query.x} + ${req.query.y} = ${sum}`);
+})
+```
+
+Acvitity (8 min)
+
+Write new routes that have one or more query parameters. (One idea might be a `/restaurants` route that expects parameters that look like `?cuisine=mexican` or even `?cuisine=mexican&price=medium`.) Take the parameter(s) and `res.send` them back to the browser either raw or interpolated into a string. Now, test them out by using http://localhost:3000 plus your route(s) in the browser.
+
 
 Reminder: Let's stop our server (`ctrl + c`).
