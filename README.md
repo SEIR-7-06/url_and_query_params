@@ -214,7 +214,7 @@ app.listen(3000, () => {
 });
 ```
 
-Acvitity (8 min)
+**Activity (8 min)**
 
 Write new routes that have one or more parameters. (One idea might be `/dogs/:name/` or even `/dogs/:name/:breed`.) Take the parameter(s) and `res.send` them back to the browser either raw or interpolated into a string. Now, test them out by using http://localhost:3000 plus your route(s) in the browser.
 
@@ -278,7 +278,7 @@ app.get('/add', (req, res) => {
 })
 ```
 
-Acvitity (8 min)
+**Activity (8 min)**
 
 Write new routes that have one or more query parameters. (One idea might be a `/restaurants` route that expects parameters that look like `?cuisine=mexican` or even `?cuisine=mexican&price=medium`.) Take the parameter(s) and `res.send` them back to the browser either raw or interpolated into a string. Now, test them out by using http://localhost:3000 plus your route(s) in the browser.
 
