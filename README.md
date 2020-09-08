@@ -41,9 +41,10 @@ Your instructor will regularly pushing to this repo, so you can sync up by runni
 ```js
 const express = require('express');
 const app = express();
+const PORT = 3000;
 
-app.listen(3000, () => {
-    console.log('Listening for client requests');
+app.listen(PORT, () => {
+    console.log(`Listening for client requests on port ${PORT}`);
 })
 ```
 
@@ -59,13 +60,14 @@ Because we don't have a database yet, we will use an array to simulate the datab
 ```js
 const express = require('express');
 const app = express();
+const PORT = 3000;
 
 // temporary, simulated database
 const fruits = ['apple', 'banana', 'pear'];
 
-app.listen(3000, () => {
-    console.log('Listening for client requests');
-});
+app.listen(PORT, () => {
+    console.log(`Listening for client requests on port ${PORT}`);
+})
 ```
 
 
@@ -76,6 +78,7 @@ Earlier, the two parameters of our controller callback function were `request` a
 ```js
 const express = require('express');
 const app = express();
+const PORT = 3000;
 
 // temporary, simulated database
 const fruits = ['apple', 'banana', 'pear'];
@@ -93,9 +96,9 @@ app.get('/fruits/2', (req, res) => {
     res.send(fruits[2]);
 });
 
-app.listen(3000, () => {
-    console.log('Listening for client requests');
-});
+app.listen(PORT, () => {
+    console.log(`Listening for client requests on port ${PORT}`);
+})
 ```
 
 Now visit http://localhost:3000/fruits/0
@@ -138,6 +141,7 @@ Let's refactor our controllers to just one controller:
 ```js
 const express = require('express');
 const app = express();
+const PORT = 3000;
 
 // temporary, simulated database
 const fruits = ['apple', 'banana', 'pear'];
@@ -147,9 +151,9 @@ app.get('/fruits/:fruitIndex', (req, res) => {
     res.send(fruits[req.params.fruitIndex]);
 });
 
-app.listen(3000, () => {
-    console.log('Listening for client requests');
-});
+app.listen(PORT, () => {
+    console.log(`Listening for client requests on port ${PORT}`);
+})
 ```
 
 Now try out the same URLs in the client.
@@ -168,6 +172,7 @@ Occasionally, a less specific route with a URL param will catch something that i
 ```js
 const express = require('express');
 const app = express();
+const PORT = 3000;
 
 // temporary, simulated database
 const fruits = ['apple', 'banana', 'pear'];
@@ -183,9 +188,9 @@ app.get('/fruits/awesome', (req, res) => {
     res.send('Fruits are awesome!');
 });
 
-app.listen(3000, () => {
-    console.log('Listening for client requests');
-});
+app.listen(PORT, () => {
+    console.log(`Listening for client requests on port ${PORT}`);
+})
 ```
 
 If this happens, we just need to reorder them so that more specific routes are evaluated before less specific routes (those with params in them).
@@ -193,6 +198,7 @@ If this happens, we just need to reorder them so that more specific routes are e
 ```js
 const express = require('express');
 const app = express();
+const PORT = 3000;
 
 // temporary, simulated database
 const fruits = ['apple', 'banana', 'pear'];
@@ -209,9 +215,9 @@ app.get('/fruits/:fruitIndex', (req, res) => {
 });
 
 
-app.listen(3000, () => {
-    console.log('Listening for client requests');
-});
+app.listen(PORT, () => {
+    console.log(`Listening for client requests on port ${PORT}`);
+})
 ```
 
 **Activity (8 min)**
@@ -236,6 +242,7 @@ Just like `req.params`, Express will retrieves these query parameters through an
 ```js
 const express = require('express');
 const app = express();
+const PORT = 3000;
 
 // temporary, simulated database
 const fruits = ['apple', 'banana', 'pear'];
@@ -246,9 +253,9 @@ app.get('/greetings', (req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log('Listening for client requests');
-});
+app.listen(PORT, () => {
+    console.log(`Listening for client requests on port ${PORT}`);
+})
 ```
 
 Try it out: http://localhost:3000/greetings?firstName=Grace&lastName=Hopper
