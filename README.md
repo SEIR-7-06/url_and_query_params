@@ -6,7 +6,7 @@
 1. Place routes in correct order
 
 
-## Fruits app
+<!-- ## Fruits app
 
 Over the next few lessons, we're going to be building an app together. We will all be using the same repo so that we can remain in sync. Let's get it set up:
 
@@ -22,9 +22,9 @@ Your instructor will regularly pushing to this repo, so you can sync up by runni
     - This will throw away all your staged and unstaged changes, forget everything on your current local branch, and then merge all the fetched changes, making it exactly the same as `origin/master`.
 3. Optional: If your instructor has installed npm packages that you have not, run `npm install`.
     - This will read the `package.json` and install any packages that are listed there, which are not currently in your `node_modules`.
+ -->
 
-
-## Setup
+## Fruits App Setup
 
 1. Open `express-fruits` in your editor.
 2. Open the terminal in your editor (in VS Code, use ctrl + `).
